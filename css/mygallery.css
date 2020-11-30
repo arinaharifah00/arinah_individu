@@ -22,40 +22,9 @@ p.impact {
 div {
   background-color: lavenderblush;
 }
-
-img.one {
- height: 494px;
-  width: 950px;
-}
-
-img.two {
-  height: 494px;
-  width: 950px;
-}
-
-img.three {
-  height: 494px;
-  width: 950px;
-}
-img.four {
-  height: 494px;
-  width: 1000px;
-}
-img.five {
-  height: 494px;
-  width: 950px;
-}
-img.six {
-  height: 494px;
-  width: 950px;
-}
-img.seven {
-  height: 480px;
-  width: 600px;
-}
-img.eight {
-  height: 494px;
-  width: 950px;
+img {
+  width: 100%;
+  height: auto;
 }
 * {box-sizing: border-box}
 .mySlides1, .mySlides2 {display: none}
