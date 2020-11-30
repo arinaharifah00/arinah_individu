@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> My Gallery</title>
+<link href="css/mygallery.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Charmonman' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body {
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 40px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: pink;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: grey;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 0;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+</style>
+</head>
+<body>
+<h1 class="impact" style="text-align:center" >My Gallery</h1>
+
+<center><p class="impact" >My Besties</p></center>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="index.html">Home</a>
+  <a href="aboutme.html">About Me</a>
+  <a href="contactme.html">Contact Me</a>
+  <a href="mygallery.html">My Gallery</a>
+  <a href="mymusic.html">My Music Playlist</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<div class="slideshow-container">
+  <div class="mySlides1">
+    <img src="image/img14.jpg" style="width:100%">
+    <div class="text" >Alisha, Adriana, Arinah and Batrisyia</div>
+  </div>
+
+  <div class="mySlides1">
+    <img class="one" src="image/img4.png" style="width:100%">
+    <div class="text">Outing with Aina</div>
+  </div>
+
+  <div class="mySlides1">
+    <img class="two"src="image/img15.png" style="width:100%">
+    <div class="text"> With Hidayah</div>
+  </div>
+
+<div class="mySlides1">
+    <img class="three" src="image/img16.png" style="width:100%">
+    <div class="text">My Forever Bestie Zetty</div>
+  </div>
+  
+  <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+</div>
+
+<center><p class="impact">My Cute/Handsome Nieces</p></center>
+<div class="slideshow-container">
+  <div class="mySlides2">
+    <img class="four" src="image/img11.png" style="width:100%">
+    <div class="text">Irdina Imanina</div>
+  </div>
+
+  <div class="mySlides2">
+    <img class="five" src="image/img10.png" style="width:100%">
+    <div class="text">Arisya Hayani</div>
+  </div>
+
+  <div class="mySlides2">
+    <img class="six" src="image/img7.png" style="width:100%">
+    <div class="text">Muhammad Nuh Absyar</div>
+  </div>
+
+<div class="mySlides2">
+    <img class="seven" src="image/img1.png" style="width:100%">
+    <div class="text">Muhammad Hud Amsyar</div>
+  </div>
+  
+ <div class="mySlides2">
+    <img class="eight" src="image/img12.png" style="width:100%">
+    <div class="text">Syifa Amni</div>
+  </div>
+  <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+</div>
+
+<script>
+var slideIndex = [1,1];
+var slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  var i;
+  var x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
+</script>
+
+<div class="footer">
+  <footer class="impact"><i class="fa fa-copyright"></i> Copyright 2020 <br><i class="fa fa-instagram"></i>arinahmoshi_ <br><i class="fa fa-twitter"></i>arinahmoshi_ </footer>
+
+</div>
+
+</body>
+</html> 

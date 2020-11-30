@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me</title>
+<link href="css/aboutme.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Charmonman' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: pink;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1 class="impact" >About Me</h1>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+   <a href="index.html">Home</a>
+  <a href="aboutme.html">About Me</a>
+  <a href="contactme.html">Contact Me</a>
+  <a href="mygallery.html">My Gallery</a>
+  <a href="mymusic.html">My Music Playlist</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<div class="row">
+  <div class="col-3">
+    <img src="image/img17.png" class="rounded float-left" width="230" height="277" alt="me">
+  </div>
+
+  <div class="col-6">
+    <p class="impact">Name: Arinah Arifah bt Othman</p>
+	<p class="impact">Age: 20 years old</p>
+	<p class="impact">DOB: 16/09/2000</p>
+	<p class="impact">Lives in: Senawang,Negeri Sembilan</p>
+	<p class="impact">Youngest out of 5 siblings</p>
+	<p class="impact">Currently studying in UiTM Campus Rembau</p>
+	<h2 class="impact">What I Like<i class="fas fa-heart"></i></h2>
+	<p class="impact">Favourite food(s) : Macaroni Bolognese, Chicken, French Fries, Fried Rice with burger patty</p>
+	<p class="impact">Favourite drinks(s): Sirap Bandung, Milo, Farm Fresh Chocolate Milk, Starbucks Ice blended Caramel Machiatto and Chocolate Cream Chip Frappucino, Teh O' Ice</p>
+	<p class="impact">Favourite dessert(s): Chocolate cake, pavlova, frunchies, bomboloni, tiramisu cake, Mcflurry Oreo, Sundae Chocolate, Sundae Cone, Orange Moist Cake</p>
+	<p class="impact">In my free time: Watch games videos in Youtube, watch Korean Dramas, Play Games, Eat , Sleep, Play with cats/nieces, Gossip with my friends </p>
+	<h2 class="impact">My Interest<i class="fas fa-heart"></i></h2>
+	 <p class="impact">I love learning new things such as languanges. I can speak and understand korean a bit but overall I can read korean but does not know the entire meaning of it.</p>
+	 <p class="impact">I am a fan of k-pop but I am not that obsessed with them instead I enjoy listening to their musics.</p>
+	 <p class="impact">I love travelling but so far I had went to Indonesia, Vietnam and South Korea only. With hope in future, I have enough money to travel with my beloved one >< . </p>
+<p class="impact">I do enjoy reading but I am more to books that have fantasy genre because why not. Now, I read through online only since I do not have enough space to store my books in my drawer.</p>
+<p class="impact">I enjoy listening to k-pop and english music the most. I also interest in dancing but it is just a side interest.</p>
+<p class="impact">I enjoy quiet and peaceful environment since I do not like chaotic place or whatsoever. I find it very stressful to be in chaos enviroment.</p>
+ </div>
+  
+</div>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+<script>
+
+var mybutton = document.getElementById("myBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<div class="footer">
+  <footer class="impact"><i class="fa fa-copyright"></i> Copyright 2020 <br><i class="fa fa-instagram"></i>arinahmoshi_ <br><i class="fa fa-twitter"></i>arinahmoshi_ </footer>
+
+</div>
+
+</body>
+</html>

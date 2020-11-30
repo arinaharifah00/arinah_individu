@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Music Playlist</title>
+<link href="css/audio-player.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Charmonman' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+<link rel="stylesheet" href="css/mymusic.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+<script src="js/jquery-ui-slider.js"></script>
+<script src="js/audioPlayer.js"></script>
+<style>
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: pink;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+</style>
+</head>
+<body>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="index.html">Home</a>
+  <a href="aboutme.html">About Me</a>
+  <a href="contactme.html">Contact Me</a>
+  <a href="mygallery.html">My Gallery</a>
+  <a href="mymusic.html">My Music Playlist</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<center><h1 class="impact"><i class="fa fa-music" style="font-size:35px"></i> My Music Playlist <i class="fa fa-music" style="font-size:35px"></i></h1></center>
+
+<section class="audio-player card">
+  <div class="card">
+    <div class="card-body">
+	<i class="material-icons" style="font-size:36px;color:pink">favorite</i>
+      <div class="row align-items-center mt-4 mb-3 mx-0">
+        <i id="play-button"class="material-icons play-pause text-primary mr-2" aria-hidden="true">play_circle_outline</i>
+        <i id="pause-button"class="material-icons play-pause d-none text-primary mr-2" aria-hidden="true">pause_circle_outline</i>
+        <i id="next-button"class="material-icons text-primary ml-2 mr-3" aria-hidden="true">skip_next</i>
+        </div>
+      </div>
+      <div class="p-0 m-0" id="now-playing">
+        <p class="font-italic mb-0">Now Playing: </p>
+        <p class="lead" id="title"></p>
+      </div>
+      <div class="container">
+  <div class="progress">
+    <div class="progress-bar bg-secondary" style="width:100%"></div>
+  </div>
+</div>
+    </div>
+       <ul class="playlist list-group list-group-flush">
+      <li audio_url="sound/readyforlove.mp3" 
+      class="active list-group-item playlist-item">
+      Blackpink- Ready For Love</li>
+	  
+      <li audio_url="sound/KTL.mp3" 
+      class="list-group-item playlist-item">
+      Blackpink- Kill This Love</li>
+	  
+      <li audio_url="sound/AIIYL.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- As if its your last</li>
+	  
+	  <li audio_url="sound/youneverknow.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- You Never Know</li>
+	  
+	  <li audio_url="sound/DDD.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- Ddu du Ddu du</li>
+	  
+	  <li audio_url="sound/prettysavage.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- Pretty Savage</li>
+	  
+	  <li audio_url="sound/lovesickgirls.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- Lovesick Girls</li>
+	  
+	  <li audio_url="sound/solo.mp3""
+      class="list-group-item playlist-item">
+      Blackpink (Jennie) - Solo</li>
+	  
+	  <li audio_url="sound/whistle.mp3""
+      class="list-group-item playlist-item">
+      Blackpink- Whistle</li>
+	  
+	  <li audio_url="sound/5star.mp3""
+      class="list-group-item playlist-item">
+      CL- 5 Star</li>
+  </div>
+  <audio id="audio-player" class="d-none" src="" type="audio/mp3" controls="controls"></audio>
+</section>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+<script>
+
+var mybutton = document.getElementById("myBtn");
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<div class="footer">
+  <footer class="impact"><i class="fa fa-copyright"></i> Copyright 2020 <br><i class="fa fa-instagram"></i>arinahmoshi_ <br><i class="fa fa-twitter"></i>arinahmoshi_ </footer>
+
+</div>
+
+</body>
+</html>

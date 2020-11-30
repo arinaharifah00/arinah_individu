@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="playerW" data-bind="style:{ top:placement()=='top'?'0':'auto', 
+	bottom:placement()=='top'?'auto':'0',height:'25px'}" style="top: auto; bottom: 0px; height: 25px;"><div id="player">
+	<div class="item button" data-bind="
+		click:previous,
+		maskBtn:{css:'mainImage'}
+		" id="previous"></div> 
+	<div class="item button" data-bind="
+		click:play,
+		visible:!isPlay(),
+		maskBtn:{hasOffset:false}
+		" id="play" style="display: none;"></div> 
+	<div class="item button" data-bind="
+		click:pause,
+		visible:isPlay(),
+		maskBtn:{css:'mainImage'}
+		" id="pause"></div> 
+	<div class="item button" data-bind="
+		click:next,
+		maskBtn:{css:'mainImage'}
+		" id="next"></div> 
+	<div class="text" id="title" data-bind="
+		followLeft:'#seeker'
+		" style="">
+    <a data-bind="text:display, attr: { href: current().url() }" target="_blank" id="titleLink" href="http://www.youtube.com/watch?v=G1PKKdjruq8">Bigbang-Fantastic Baby </a>
+	</div> 
+	<div class="item ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-bind="
+		slider:playedFraction, 
+		sliderOptions:{step:0.00001,min:0,max:1,pauseable:true}
+		" id="seeker" style="left: 235px;"> 
+		<div id="seekerSliderBase" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 0%;"></div> 
+		<div id="seekerBase"></div> 
+		<div id="seekerBuffered" data-bind="
+			style:{width:(loadedFraction()*100)+'%'}
+			" style="width: 0%;"></div> 
+	</div> 
+	<div class="text" id="tooltip"> 
+		<a href="http://scmplayer.net" id="scmLink" target="_blank">SCM Music Player</a> 
+	</div> 
+	<div class="text item" id="timer" data-bind="text:timer">00:00|03:52</div> 
+	<div class="item ui-slider-horizontal" data-bind="
+		innerBound:{bound:'.bound',handle:'.ui-slider-handle'}
+		" id="volume"> 
+		<div class="bound ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-bind="
+			slider:volume,
+			sliderOptions:{liveUpdate:true},
+			caption:'Volume: '+volume()+'%',
+			captionOptions:{target:'#tooltip a',trigger:'slide'}
+			" style="width: 57px; margin-left: 4px; margin-right: 4px;">
+		<div class="ui-slider-handle ui-state-default ui-corner-all" id="volumeSlider" style="margin-left: -4px; left: 50%;"></div> 
+		</div>
+	</div> 
+	<div class="item button" id="list" data-bind="maskBtn:{css:'mainImage',align:'right'},
+		click:togglePlaylist,
+		caption:'Toggle Playlist',
+		captionOptions:{target:'#tooltip a',trigger:'hover'}
+		" style="background-position: 26px bottom;"></div> 
+	<div class="mainImage" id="baseRight"></div> 
+	<div class="mainImage" id="baseLeft"></div> 
+</div>
+</div>
+<div id="playlistW" data-bind="style:{top:placement()=='top'?'25px':'0',
+		bottom:placement()=='top'?'0':'25px', width:showPlaylist()?'251px':'0'}" style="top: 0px; bottom: 25px; width: 251px;"><div id="playlist">
+	<div class="module"> 
+		<h3>Playlist</h3> 
+	</div> 
+  <div class="module" id="playlistContainer">
+    <ol class="items" style="bottom:250px;"> 
+      <!-- ko foreach:playlist -->
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Hafiz &amp; Siti Nurhaliza-Muara Hati</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">2ne1-I love You</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Bigbang-Blue(Piano Cover )</span>&nbsp;
+			</li> 
+      
+			<li class="item even focus" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Bigbang-Fantastic Baby </span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">PSY-Oppa Gangnam Style </span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Justin Bieber-Beauty And A Beat</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">T-ARA-Day By Day(Live)</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Jason Mraz &amp; Colbie Caillat-Lucky</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Maroon 5-Wipe Ur Eyes</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Bawaku pergi-zizan n kaka</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">One Direction-One Thing</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">One Direction-Live While We're Young</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">One Direction-What Makes You Beautiful</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Apo Kono Eh Jang-Fida N AC Mizal</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">Bad Boy-bb</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">BB-Tonight</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">BB-tell me goodbye</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">U-KISS-BELIEVE</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">U-KISS-NEVER LAND</span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">U-KISS-DORADORA</span>&nbsp;
+			</li> 
+      
+			<li class="item odd" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">U-KISS(유키스) </span>&nbsp;
+			</li> 
+      
+			<li class="item even" data-bind="
+			visible:isValid(),
+			click:$root.play,
+			css:{focus:on, even:$index()%2==1, odd:$index()%2==0}
+			">
+				<span class="title" data-bind="text:title">u-kiss-man man ha ni</span>&nbsp;
+			</li> 
+      <!-- /ko -->
+		</ol> 
+    <div class="odd" style="z-index:167; margin-left:-25px; position:absolute; height:220px; overflow: hidden; left:0; right:0; bottom:0;">
+      <!-- BuySellAds Zone Code -->
+      <!-- <div id="bsap_1306358" class="bsarocks bsap_09cb595ac00d408b4665ea9a271bdd97"></div> -->
+      <div id="bsap_1306386" style="transform: scale(0.84); margin-top: -20px;" class="bsarocks bsap_09cb595ac00d408b4665ea9a271bdd97"><iframe src="/ads/300_250.html" scrolling="no" width="300" height="250" frameborder="0"></iframe></div>
+
+      <!-- End BuySellAds Zone Code -->
+    </div>
+	</div>
+</div>
+</div>	
+</body>
+</html>

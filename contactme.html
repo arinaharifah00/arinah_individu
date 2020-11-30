@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Me</title>
+<link href="css/contactme.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Charmonman' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: pink;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+</style>
+</head>
+<body>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="index.html">Home</a>
+  <a href="aboutme.html">About Me</a>
+  <a href="contactme.html">Contact Me</a>
+  <a href="mygallery.html">My Gallery</a>
+  <a href="mymusic.html">My Music Playlist</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "200px";
+  document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<h1 class="impact" style="text-align:center">Contact Me <i class="material-icons" style="font-size:36px">contacts</i></h1>
+<div class="card">
+  <img src="image/img18.jpg" alt="Arinah" style="width:100%">
+  <h2>Arinah Arifah</h2>
+  <p class="title">Student of Information Management</p>
+  <p>UiTM Rembau</p>
+  <div style="margin: 24px 0;"> 
+    <a href="https://twitter.com/arinahmoshi"><i class="fa fa-twitter"></i></a>  
+		<a href="https://www.facebook.com/profile.php?id=100011278694064"><i class="fa fa-facebook"></i></a> 
+			<a href="https://www.instagram.com/arinahmoshi_/"><i class="fa fa-instagram"></i></a> 
+				<p><a href="mailto:arinah169@gmail.com" >Click <b>HERE</b> to send me email</a></p> 
+</div>
+
+</body>
+</html>
