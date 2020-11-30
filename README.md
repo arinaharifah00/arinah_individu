@@ -1,0 +1,1 @@
+# arinah_individu
